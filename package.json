@@ -3,11 +3,12 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "start": "dotnet watch run",
+        "start": "dotnet watch run ./WebApplication",
         "build": "npm run build:app && npm run build:pages",
-        "build:app": "dotnet publish -c Release",
-        "build:pages": "rimraf docs && mkdirp docs && copyfiles -u 5 -E \"bin/Release/net5.0/publish/wwwroot/**/*\" docs",
-        "build:pages:clean": "rimraf docs && mkdirp docs"
+        "build:app": "dotnet publish -c Release ./WebApplication",
+        "build:pages": "npm run build:pages:clean && npm run build:pages:copy",
+        "build:pages:clean": "rimraf docs && mkdirp docs",
+        "build:pages:copy": "copyfiles -u 6 -E \"WebApplication/bin/Release/net5.0/publish/wwwroot/**/*\" docs"
     },
     "devDependencies": {
         "copyfiles": "^2.4.1",
