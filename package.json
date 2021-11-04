@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "start": "dotnet watch run ./WebApplication",
+        "start": "dotnet watch run --project ./WebApplication",
         "build": "npm run build:app && npm run build:pages",
         "build:app": "dotnet publish -c Release ./WebApplication",
         "build:pages": "npm run build:pages:clean && npm run build:pages:copy",
