@@ -1,0 +1,1 @@
+# fast-blazor-issue-template
