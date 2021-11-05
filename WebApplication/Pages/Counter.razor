@@ -3,9 +3,18 @@
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p class="my-text-scoped-css">Current count: @currentCount</p>
 
-<FluentButton @onclick="IncrementCount">Click me</FluentButton>
+<FluentButton class="my-button-scoped-css" @onclick="IncrementCount">Click me - scoped css</FluentButton>
+
+<style>
+    .my-button-local-css {
+        background: red;
+    }
+</style>
+<FluentButton class="my-button-local-css" @onclick="IncrementCount">Click me - local css</FluentButton>
+
+<FluentButton style="background: red;" @onclick="IncrementCount">Click me - inline css</FluentButton>
 
 @code {
     private int currentCount = 0;
