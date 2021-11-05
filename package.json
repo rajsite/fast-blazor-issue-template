@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build": "dotnet watch run --project ./WebApplication",
-        "build:prod": "npm run build:app && npm run build:pages",
+        "start": "dotnet watch run --project ./WebApplication",
+        "build": "npm run build:app && npm run build:pages",
         "build:app": "dotnet publish -c Release ./WebApplication",
         "build:pages": "npm run build:pages:clean && npm run build:pages:copy",
         "build:pages:clean": "rimraf docs && mkdirp docs",
