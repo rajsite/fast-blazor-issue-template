@@ -3,18 +3,32 @@
 
 <h1>Counter</h1>
 
-<p class="my-text-scoped-css">Current count: @currentCount</p>
+<p>Current count: @currentCount</p>
 
-<FluentButton class="my-button-scoped-css" @onclick="IncrementCount">Click me - scoped css</FluentButton>
+<!-- ✔ Using the FAST web component with CSS isolation works, but I'd like to use the typing given by FAST Razor components -->
+<div class="button-container">
+    <fluent-button class="my-web-component-button-scoped-css" @onclick="IncrementCount">Click me - web component scoped css</fluent-button>
+</div>
 
+<!-- ❌ Swapping and using the FAST Razor component with CSS isolation does not work 😢 -->
+<div class="button-container">
+    <FluentButton class="my-razor-button-scoped-css" @onclick="IncrementCount">Click me - scoped css</FluentButton>
+</div>
+
+<!-- ⚠ Using the FAST Razor component by moving the css into a style tag "works" but is cheating. Those do not participate in CSS isolation and are effectively global styles -->
 <style>
-    .my-button-local-css {
-        background: red;
+    .my-razor-button-local-css {
+        margin: 16px;
     }
 </style>
-<FluentButton class="my-button-local-css" @onclick="IncrementCount">Click me - local css</FluentButton>
+<div class="button-container">
+    <FluentButton class="my-razor-button-local-css" @onclick="IncrementCount">Click me - local css</FluentButton>
+</div>
 
-<FluentButton style="background: red;" @onclick="IncrementCount">Click me - inline css</FluentButton>
+<!-- ⚠ Using a FAST Razor component with inline styles works but does not let us use CSS files as expected -->
+<div class="button-container">
+    <FluentButton style="margin: 16px;" @onclick="IncrementCount">Click me - inline css</FluentButton>
+</div>
 
 @code {
     private int currentCount = 0;

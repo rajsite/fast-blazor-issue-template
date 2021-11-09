@@ -1,7 +1,4 @@
-.my-text-scoped-css {
-    background: red;
-}
+.button-container { border: 1px solid red; }
+.my-web-component-button-scoped-css { margin: 16px; }
+.my-razor-button-scoped-css { margin: 16px; }
 
-.my-button-scoped-css {
-    background: red;
-}
