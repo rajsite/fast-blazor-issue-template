@@ -1,4 +1,4 @@
-.button-container { border: 1px solid red; }
+.button-container { display:flex; flex-direction: column; border: 1px solid red; width: 500px;}
 .my-web-component-button-scoped-css { margin: 16px; }
 .my-razor-button-scoped-css { margin: 16px; }
-
+::deep .my-razor-button-deep { margin: 16px; }

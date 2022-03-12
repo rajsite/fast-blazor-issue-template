@@ -5,29 +5,26 @@
 
 <p>Current count: @currentCount</p>
 
-<!-- ✔ Using the FAST web component with CSS isolation works, but I'd like to use the typing given by FAST Razor components -->
 <div class="button-container">
+<!-- ✔ Using the FAST web component with CSS isolation works, but I'd like to use the typing given by FAST Razor components -->
     <fluent-button class="my-web-component-button-scoped-css" @onclick="IncrementCount">Click me - web component scoped css</fluent-button>
-</div>
 
 <!-- ❌ Swapping and using the FAST Razor component with CSS isolation does not work 😢 -->
-<div class="button-container">
     <FluentButton class="my-razor-button-scoped-css" @onclick="IncrementCount">Click me - scoped css</FluentButton>
-</div>
 
 <!-- ⚠ Using the FAST Razor component by moving the css into a style tag "works" but is cheating. Those do not participate in CSS isolation and are effectively global styles -->
-<style>
-    .my-razor-button-local-css {
-        margin: 16px;
-    }
-</style>
-<div class="button-container">
+    <style>
+        .my-razor-button-local-css {
+            margin: 16px;
+        }
+    </style>
     <FluentButton class="my-razor-button-local-css" @onclick="IncrementCount">Click me - local css</FluentButton>
-</div>
 
 <!-- ⚠ Using a FAST Razor component with inline styles works but does not let us use CSS files as expected -->
-<div class="button-container">
     <FluentButton style="margin: 16px;" @onclick="IncrementCount">Click me - inline css</FluentButton>
+
+<!-- ✔⚠ Using a FAST Razor component with deep style selector has the fewest tradeoffs but requires knowledge of underlying web component name in CSS -->
+    <FluentButton class="my-razor-button-deep" @onclick="IncrementCount">Click me - deep css</FluentButton>
 </div>
 
 @code {
