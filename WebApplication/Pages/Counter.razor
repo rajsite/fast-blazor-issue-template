@@ -12,6 +12,8 @@
 <!-- ❌ Swapping and using the FAST Razor component with CSS isolation does not work 😢 -->
     <FluentButton class="my-razor-button-scoped-css" @onclick="IncrementCount">Click me - scoped css</FluentButton>
 
+<!-- The following are different workarounds -->
+
 <!-- ⚠ Using the FAST Razor component by moving the css into a style tag "works" but is cheating. Those do not participate in CSS isolation and are effectively global styles -->
     <style>
         .my-razor-button-local-css {
